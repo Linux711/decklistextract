@@ -1,0 +1,15 @@
+# Ignore image files
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.webp
+
+# Ignore other common files
+*.DS_Store
+__pycache__/
+*.pyc
+
+# Allow python scripts
+!*.py
