@@ -3,7 +3,7 @@
 Test script to crop a single card from the image.
 """
 
-from PIL import Image, ImageDraw
+from PIL import Image
 import sys
 
 def test_crop(input_path, output_path):
@@ -25,15 +25,6 @@ def test_crop(input_path, output_path):
 
     # Crop the card
     card = img.crop(coords)
-
-    # Create a rounded mask
-    mask = Image.new('L', (w, h), 0)
-    draw = ImageDraw.Draw(mask)
-    radius = min(w, h) // 15  # Adjust for more/less rounding
-    draw.rounded_rectangle([0, 0, w, h], radius=radius, fill=255)
-
-    # Apply the mask to the card
-    card.putalpha(mask)
 
     # Save as PNG
     card.save(output_path, 'PNG')
